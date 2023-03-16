@@ -1,2 +1,2 @@
-#!\s*/bin/bsh
+#!/bin/bsh
 gcc -E $CFILE > c
