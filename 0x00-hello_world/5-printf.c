@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-/*
+/**
  * main - Entry point
  * Description: print "with proper grammar, bu the outcome is a piece of art,"
  * Return: 0
