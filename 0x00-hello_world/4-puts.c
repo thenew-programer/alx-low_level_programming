@@ -6,6 +6,9 @@
 
 int main(void)
 {
+	/*
+	 * this program prints a string to the screen
+ 	*/
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
