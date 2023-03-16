@@ -2,13 +2,13 @@
 
 /*
  * this program prints a string to the screen
- */
+*/
 
 int main(void)
 {
 	/*
-	 * this program prints a string to the screen
- 	*/
+	 * this program prints a string to the 
+	*/
 	puts("\"Programming is like building a multilingual puzzle");
 	return (0);
 }
