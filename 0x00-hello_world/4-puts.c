@@ -1,10 +1,11 @@
 #include <stdio.h>
 
 /**
- * programe print a stirng
- * 
- * return 0;
+ * main - Entry point
+ * Description: "\"Programming is like building a multilingual puzzle"
+ * Return: 0
  */
+
 int main()
 {
     puts("\"Programming is like building a multilingual puzzle");
