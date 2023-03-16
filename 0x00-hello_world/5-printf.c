@@ -1,15 +1,13 @@
 #include <stdio.h>
 
 /*
- * This program prints a string using printf
+ * main - Entry point
+ * Description: print "with proper grammar, bu the outcome is a piece of art,"
+ * Return: 0
  */
 
 int main(void)
 {
-
-	/*
-	 * This program prints a string using printf
-	*/
 	printf("with proper grammar, but the outcome is a piece of art,\n");
 	return (0);
 }
