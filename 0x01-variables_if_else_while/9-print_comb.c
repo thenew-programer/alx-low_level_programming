@@ -19,7 +19,10 @@ while (1)
 {
 putchar(i);
 i = i - 47;
-if (i < 0) break;
+if (i < 0)
+{
+break;
+}
 }
 return (0);
 }
