@@ -4,7 +4,6 @@
 /* more headers goes there */
 /**
  * main - Entry point
- * 
  * Return: 0;
  */
 /* betty style doc for function main goes there */
@@ -20,7 +19,7 @@ if (n < 0)
 {
 printf("%d is negative\n", n);
 }
-else if(n > 0)
+else if (n > 0)
 {
 printf("%d is positive\n", n);
 }
