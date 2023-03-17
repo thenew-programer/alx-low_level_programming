@@ -36,4 +36,5 @@ putchar(x + i);
 }
 break;
 }
+return (0);
 }
