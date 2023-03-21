@@ -13,11 +13,11 @@ digit = n % 10;
 if (digit < 0)
 {
 print = digit * (-1);
-_putchar(print + 48);
+_putchar(print + '0');
 }
 else
 {
-_putchar(digit + 48);
+_putchar(digit + '0');
 }
 return (digit);
 }
