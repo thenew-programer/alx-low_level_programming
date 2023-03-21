@@ -14,12 +14,13 @@ print_alphabet();
 return (0);
 }
 
+
 void print_alphabet(void)
 {
 char i;
-for (i = 'a'; i <= 'z'; i++)
+for (i = 'a'; i <= 'z'; ++i)
 {
-putchar(i);
+_putchar(i);
 }
-putchar(10);
+_putchar(10);
 }
