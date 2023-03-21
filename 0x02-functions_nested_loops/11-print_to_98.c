@@ -12,7 +12,7 @@ if (n == MAX)
 {
 printf("98\n");
 }
-while(n != MAX)
+while (n != MAX)
 {
 if (n > MAX)
 {
