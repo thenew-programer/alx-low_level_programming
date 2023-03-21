@@ -12,18 +12,22 @@ for (i = 0; i < 10; i++)
 {
 for (j = 0; j < 10; j++)
 {
-_putchar(',');
-_putchar(' ');
 operation = i * j;
 if (operation < 10)
 {
-_putchar(' ');
 _putchar(operation + '0');
+_putchar(',');
+_putchar(' ');
+_putchar(' ');
 }
 else
 {
 _putchar((operation / 10) + '0');
 _putchar((operation % 10) + '0');
+_putchar((operation / 10) + '0');
+_putchar((operation % 10) + '0');
+_putchar(',');
+_putchar(' ');
 }
 }
 _putchar(10);
