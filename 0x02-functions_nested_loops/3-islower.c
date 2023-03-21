@@ -2,7 +2,7 @@
 
 /**
 * _islower - Checks if a character is lower case of not
-* Return: (1) if the char is lower
+* eturn: (1) if the char is lower
 * Return: (0) if the char isn't lower
 */
 
