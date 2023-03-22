@@ -1,4 +1,9 @@
-# DEBUGGINH
+# DEBUGGING
 ## Alx Task 
 * Debugging
-* And DEbugging
+* AND Debugging
+* AND Debugging
+* AND Debugging
+* AND Debugging
+* AND Debugging
+* AND Debugging
