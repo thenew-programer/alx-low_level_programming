@@ -11,7 +11,7 @@ int i;
 
 while (i < 10)
 {
-_putchar('0' + i);
+_putchar(('0' + i));
 i++;
 }
 
