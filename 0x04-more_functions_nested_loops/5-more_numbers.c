@@ -1,6 +1,5 @@
 #include "main.h"
 
-#define ENDL 10
 /**
 * more_numbers - Prints from 0 - 14, 10 times
 * Return: the output
