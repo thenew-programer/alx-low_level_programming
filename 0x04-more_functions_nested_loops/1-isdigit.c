@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* _isdigit - checks if the char given is a digit or naaah
+* isdigit - checks if the char given is a digit or naaah
 * @c: function parameter of type int
 * Return: 0 or 1
 */
