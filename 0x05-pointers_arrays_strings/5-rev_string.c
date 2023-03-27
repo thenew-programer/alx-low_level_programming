@@ -29,4 +29,5 @@ void rev_string(char *s)
     {
         s[i] = string[i];
     }
+    free(string);
 }
