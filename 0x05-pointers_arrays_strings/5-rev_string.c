@@ -19,10 +19,11 @@ void rev_string(char *s)
     }
 
     tmp = (char *) malloc((counter + 1) * sizeof(char));
-    for (i = (counter); i >= 0; i--)
+    for (i = (counter - 1); i >= 0; i--)
     {
         tmp[j] = s[i];
         j++;
     }
+    tmp[j] = '\0';
     s = tmp;
 }
