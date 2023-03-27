@@ -24,7 +24,5 @@ void rev_string(char *s)
         tmp[j] = s[i];
         j++;
     }
-    tmp[counter + 1] = '\0';
-
-    strcpy(s, tmp);
+    s = tmp;
 }
