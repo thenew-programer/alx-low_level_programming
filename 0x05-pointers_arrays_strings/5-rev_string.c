@@ -8,7 +8,8 @@
 
 void rev_string(char *s)
 {
-    int i, counter, j, size;
+    int i, counter, j;
+    char *tmp;
 
     i = counter = j = 0;
     while (s[i] != 0)
@@ -17,17 +18,16 @@ void rev_string(char *s)
         i++;
     }
 
-    size = counter;
-    char string[size];
+    tmp = (char *) malloc(counter * sizeof(char));
     for (i = counter; i >= 0; i--)
     {
-        string[j] = s[i];
+        tmp[j] = s[i];
         j++;
     }
 
     for (i = 0; i < counter; i++)
     {
-        s[i] = string[i];
+        s[i] = tmp[i];
     }
-    free(string);
+    free(tmp);
 }
