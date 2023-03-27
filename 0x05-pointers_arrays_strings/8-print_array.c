@@ -12,6 +12,11 @@
 void print_array(int *a, int n)
 {
     int i;
+    if (n <= 0)
+    {
+        _putchar(10);
+        exit(EXIT_FAILURE);
+    }
     for (i = 0; i < n; i++)
     {
         if (i == (n - 1))
