@@ -19,6 +19,6 @@ void print_array(int *a, int n)
             printf("%d\n", *(a + i));
             exit(EXIT_SUCCESS);
         }
-        printf("%d, ", *(a + i))
+        printf("%d, ", *(a + i));
     }
 }
