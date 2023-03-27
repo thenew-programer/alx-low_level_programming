@@ -19,10 +19,21 @@ void puts_half(char *str)
         i++;
     }
     
-    n = (counter / 2);
+    if ((counter % 2) != 0)
+    {
+        n = (counter / 2) + 1;
+    }
+    else
+    {
+        n = (counter / 2);
+    }
 
     for (i = n; i <= counter; i++)
     {
+        if (n = 0)
+        {
+            break;
+        }
         _putchar(str[i]);
     }
     _putchar(10);
