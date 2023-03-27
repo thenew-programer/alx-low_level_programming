@@ -16,7 +16,8 @@ void rev_string(char *s)
         counter++;
         i++;
     }
-    static char tmp[counter + 1];
+    const int size = counter + 1;
+    static char tmp[size];
     for (i = (counter - 1); i >= 0; i--)
     {
         tmp[j] = s[i];
