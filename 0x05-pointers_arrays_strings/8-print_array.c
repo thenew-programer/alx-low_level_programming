@@ -15,7 +15,7 @@ void print_array(int *a, int n)
     if (n <= 0)
     {
         _putchar(10);
-        exit(EXIT_FAILURE);
+        return (-1);
     }
     for (i = 0; i < n; i++)
     {
