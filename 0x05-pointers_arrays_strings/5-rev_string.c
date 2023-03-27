@@ -9,20 +9,18 @@
 void rev_string(char *s)
 {
     int i, counter, j;
+    char tmp;
 
     i = counter = j = 0;
-    while (s[i] != 0)
+    while (s[counter] != 0)
     {
         counter++;
-        i++;
     }
-    const int size = counter + 1;
-    static char tmp[size];
-    for (i = (counter - 1); i >= 0; i--)
+    j = counter;
+    for (i = 0; i < counter / 2; i--)
     {
-        tmp[j] = s[i];
-        j++;
+        tmp = s[i];
+        s[i] = s[--j];
+        s[j] = tmp;
     }
-    tmp[counter] = '\0';
-    s = tmp;
 }
