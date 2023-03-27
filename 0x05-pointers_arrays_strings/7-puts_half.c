@@ -30,7 +30,7 @@ void puts_half(char *str)
 
     for (i = n; i <= counter; i++)
     {
-        if (n = 0)
+        if (n == 0)
         {
             break;
         }
