@@ -9,7 +9,6 @@
 void rev_string(char *s)
 {
     int i, counter, j;
-    char *tmp;
 
     i = counter = j = 0;
     while (s[i] != 0)
@@ -17,13 +16,12 @@ void rev_string(char *s)
         counter++;
         i++;
     }
-
-    tmp = (char *) malloc((counter + 1) * sizeof(char));
+    static char tmp[counter + 1];
     for (i = (counter - 1); i >= 0; i--)
     {
         tmp[j] = s[i];
         j++;
     }
-    tmp[j] = '\0';
+    tmp[counter] = '\0';
     s = tmp;
 }
