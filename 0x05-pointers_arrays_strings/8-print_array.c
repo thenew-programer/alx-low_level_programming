@@ -14,12 +14,11 @@ void print_array(int *a, int n)
     int i;
     for (i = 0; i < n; i++)
     {
-        _putchar(a[i] + '0');
-        while (i < n)
+        if (i == (n - 1))
         {
-            _putchar(',');
-            _putchar(' ');
+            printf("%d\n", *(a + i));
+            exit(EXIT_SUCCESS);
         }
+        printf("%d, ", *(a + i))
     }
-    _putchar(10);
 }
