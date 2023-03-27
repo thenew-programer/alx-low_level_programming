@@ -18,11 +18,13 @@ void rev_string(char *s)
         i++;
     }
 
+    string = (char *) malloc(counter * sizeof(char));
     for (i = counter - 1; i >= 0; i++)
     {
         string[j] = s[i];
         j++;
     }
+    string[counter] == 0;
 
     for (i = 0; i < (counter - 1); i++)
     {
