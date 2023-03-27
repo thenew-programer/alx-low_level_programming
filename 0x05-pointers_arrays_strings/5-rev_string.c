@@ -24,7 +24,7 @@ void rev_string(char *s)
         string[j] = s[i];
         j++;
     }
-    string[counter] == 0;
+    string[counter] = 0;
 
     for (i = 0; i < (counter - 1); i++)
     {
