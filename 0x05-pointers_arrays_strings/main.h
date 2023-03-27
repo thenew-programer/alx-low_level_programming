@@ -5,5 +5,6 @@ void reset_to_98(int *n);
 
 void swap_int(int *a, int *b);
 
-int int_strlen(char *c);
+int int_strlen(char *s);
+
 #endif /* MAIN_H */
