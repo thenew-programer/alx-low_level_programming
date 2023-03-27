@@ -1,4 +1,4 @@
-$include "main.h"
+#include "main.h"
 
 /**
  * reset_to_98 - this function reset what inside the address to 98
