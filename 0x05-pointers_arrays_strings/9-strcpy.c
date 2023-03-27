@@ -26,5 +26,5 @@ for (i = 0; i < counter; i++)
 dest[i] = src[i];
 }
 dest[counter] = '\0';
-return dest;
+return (dest);
 }
