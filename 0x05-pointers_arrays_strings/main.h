@@ -2,8 +2,12 @@
 #define MAIN_H
 
 #include <stdlib.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
+
+double pow(double x, double y);
 
 int _putchar(char c);
 
