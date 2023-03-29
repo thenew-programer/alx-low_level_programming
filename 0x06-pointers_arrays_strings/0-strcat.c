@@ -12,6 +12,7 @@
 char *_strcat(char *dest, char *src)
 {
     int i, counter, counter_S, counter_D;
+
     i = counter_S = counter_D = 0;
     /* Count how many chars in the src string*/
     while (src[counter_S] != 0)
