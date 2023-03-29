@@ -11,26 +11,23 @@
 
 char *_strcat(char *dest, char *src)
 {
-    int i, counter, counter_S, counter_D;
+    int i, counter_S, counter_D;
 
     i = counter_S = counter_D = 0;
-    /* Count how many chars in the src string*/
-    while (src[counter_S] != 0)
-    {
-        counter_S++;
-    }
+
     /* Count how many chars in the dest string*/
     while (dest[counter_D] != 0)
     {
         counter_D++;
     }
 
-    counter = counter_D + counter_S;
-    /* Concatenate the src with the dest string in the dest*/
-    for (i = counter_D; i <= counter; i++)
+    /* Count how many chars in the src string*/
+    while (src[counter_S] != 0)
     {
-        dest[i] = src[i];
+        dest[counter_D] = src[counter_S];
+        counter_S++;
     }
+
     dest[i + 1] = 0;
     return (dest);
 }
