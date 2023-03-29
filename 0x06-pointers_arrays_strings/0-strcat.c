@@ -26,6 +26,7 @@ char *_strcat(char *dest, char *src)
     {
         dest[counter_D] = src[counter_S];
         counter_S++;
+        counter_D++;
     }
 
     dest[i + 1] = 0;
