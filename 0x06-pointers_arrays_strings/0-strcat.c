@@ -11,9 +11,9 @@
 
 char *_strcat(char *dest, char *src)
 {
-    int i, counter_S, counter_D;
+    int counter_S, counter_D;
 
-    i = counter_S = counter_D = 0;
+    counter_S = counter_D = 0;
 
     /* Count how many chars in the dest string*/
     while (dest[counter_D] != 0)
@@ -29,6 +29,6 @@ char *_strcat(char *dest, char *src)
         counter_D++;
     }
 
-    dest[i + 1] = 0;
+    dest[counter_D + 1] = 0;
     return (dest);
 }
