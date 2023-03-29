@@ -26,7 +26,7 @@ char *_strcat(char *dest, char *src)
 
     counter = counter_D + counter_S;
     /* Concatenate the src with the dest string in the dest*/
-    for (i = counter_D; i < counter; i++)
+    for (i = counter_D; i <= counter; i++)
     {
         dest[i] = src[i];
     }
