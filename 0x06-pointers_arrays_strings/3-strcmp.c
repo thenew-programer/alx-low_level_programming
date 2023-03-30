@@ -25,7 +25,7 @@ int _strcmp(char *s1, char *s2)
             {
                 break;
             }
-            cmp = 0 - s2[i];
+            cmp += 0 - s2[i];
             i++;
         }
         while (s2[i] == 0)
@@ -34,7 +34,7 @@ int _strcmp(char *s1, char *s2)
             {
                 break;
             }
-            cmp = s1[i];
+            cmp += s1[i];
             i++;
         }
         cmp += s1[i] - s2[i];
