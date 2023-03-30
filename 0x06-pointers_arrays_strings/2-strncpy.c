@@ -22,7 +22,7 @@ char *_strncpy(char *dest, char *src, int n)
 
     while (counter_S < n)
     {
-        if (src[counter_S] == 0)
+        if (src[counter_S] == 0 || src[counter_S] == 10)
         {
             counter = counter_S;
             while (counter >= counter_D)
