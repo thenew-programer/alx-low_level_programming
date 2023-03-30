@@ -11,8 +11,10 @@
 char *cap_string(char *s)
 {
     int i, j;
+    const int len = 13;
 
-    char specialCharacters[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+    char specialCharacters[len] = {' ', '\t', '\n', ',', ';', '.',
+		'!', '?', '"', '(', ')', '{', '}'};
 
     for (i = 0; s[i] != 0; i++)
     {
@@ -20,7 +22,7 @@ char *cap_string(char *s)
         {
             s[i] -= 32;
         }
-        for (j = 0; j < 13; j++)
+        for (j = 0; j < len; j++)
         {
             if (s[i] == specialCharacters[j])
             {
