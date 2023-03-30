@@ -28,7 +28,7 @@ for (i = counter_D; i < counter; i++)
     dest[i] = src[counter_S];
     counter_S++;
 }
-    dest[counter_D + 1] = 0;
+    dest[counter + 1] = 0;
     return (dest);
 }
 
