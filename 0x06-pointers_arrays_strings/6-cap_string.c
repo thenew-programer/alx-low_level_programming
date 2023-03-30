@@ -12,8 +12,7 @@ char *cap_string(char *s)
 {
     int i, j;
 
-    char specialCharacters[13] = {' ', '\t', '\n', ',', ';', '.',
-		'!', '?', '"', '(', ')', '{', '}'};
+    char specialCharacters[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 
     for (i = 0; s[i] != 0; i++)
     {
