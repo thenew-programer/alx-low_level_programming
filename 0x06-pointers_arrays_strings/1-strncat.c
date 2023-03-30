@@ -24,6 +24,10 @@ counter_D++;
 counter = counter_D + n;
 for (i = counter_D; i < counter; i++)
 {
+if (src[counter_S] == '\0')
+{
+break;
+}
 dest[i] = src[counter_S++];
 }
 dest[i + 1] = 0;
