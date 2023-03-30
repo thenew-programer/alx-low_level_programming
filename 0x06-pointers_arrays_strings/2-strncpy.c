@@ -22,7 +22,7 @@ char *_strncpy(char *dest, char *src, int n)
         {
             while (counter_S < n)
             {
-                src[counter++] = '\0';
+                src[counter_S++] = '\0';
             }
             break;
         }
