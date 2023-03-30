@@ -19,7 +19,7 @@ int _strcmp(char *s1, char *s2)
 
     while (1)
     {
-        while (s1[i] == 0)
+        if (s1[i] == 0)
         {
             if (s2[i] == 0)
             {
@@ -28,7 +28,7 @@ int _strcmp(char *s1, char *s2)
             cmp += 0 - s2[i];
             i++;
         }
-        while (s2[i] == 0)
+        else if (s2[i] == 0)
         {
             if (s1[i] == 0)
             {
