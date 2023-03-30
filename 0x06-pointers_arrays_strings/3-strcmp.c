@@ -12,38 +12,15 @@
 
 int _strcmp(char *s1, char *s2)
 {
-    int cmp, i;
-    
-    cmp = 0;
-    i = 0;
-
-    while (1)
+    while (*s1 == *s2)
     {
-        if (s1[i] == 0)
+        if (*s1 == '\0')
         {
-            if (s2[i] == 0)
-            {
-                break;
-            }
-            cmp += 0 - s2[i];
-            i++;
+            return (0);
         }
-        else if (s2[i] == 0)
-        {
-            if (s1[i] == 0)
-            {
-                break;
-            }
-            cmp += s1[i];
-            i++;
-        }
-        else
-        {
-
-            cmp += s1[i] - s2[i];
-            i++;
-        }
+        s1++;
+        s2++;
     }
 
-    return (cmp);
+    return (*s1 - *s2);
 }
