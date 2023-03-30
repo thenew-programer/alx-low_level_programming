@@ -13,10 +13,9 @@
 
 char *_strncat(char *dest, char *src, int n)
 {
-    
 int i, counter, counter_S, counter_D;
 
-counter_D = counter_S = 0
+counter_D = counter_S = 0;
 /* Count how many chars in the dest string*/
 while (dest[counter_D] != 0)
 {
