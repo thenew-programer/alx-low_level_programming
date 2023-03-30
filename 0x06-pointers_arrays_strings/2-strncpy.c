@@ -12,7 +12,8 @@
 
 char *_strncpy(char *dest, char *src, int n)
 {
-    int counter_D, counter_S;
+    int counter_D, counter_S, counter;
+
     counter_D = counter_S = 0;
     while (dest[counter_D] != 0)
     {
@@ -24,12 +25,13 @@ char *_strncpy(char *dest, char *src, int n)
         if (src[counter_S] == 0)
         {
             counter = counter_S;
-            while (counter > counter_D)
+            while (counter >= counter_D)
             {
                 src[counter++] = '\0';
             }
             break;
         }
+
         dest[counter_S] = src[counter_S];
         counter_S++;
     }
