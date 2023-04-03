@@ -40,5 +40,12 @@ char *_strpbrk(char *s, char *accept)
         }
     }
     free(index);
-    return (s + length);
+    if (length > 0)
+    {
+        return (s + length);
+    }
+    else
+    {
+        return NULL;
+    }
 }
