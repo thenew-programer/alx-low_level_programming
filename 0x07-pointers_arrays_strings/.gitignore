@@ -2,3 +2,5 @@ test.c
 a.out
 test-1.c
 bin
+bin2
+test-2.c
