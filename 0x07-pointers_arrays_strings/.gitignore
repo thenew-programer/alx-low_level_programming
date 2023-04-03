@@ -1,8 +1,7 @@
-test.c
+test-0.c
 a.out
 test-1.c
-bin
-bin2
 test-2.c
-bin3
 text-3.c
+text-4.c
+
