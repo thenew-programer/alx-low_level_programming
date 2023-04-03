@@ -12,7 +12,7 @@ unsigned int _strspn(char *s, char *accept)
     int i, length, A_len, A_Index;
     int *index;
     A_len = strlen(accept);
-    index = (int *)malloc(sizeof(int) * strlen(accept));
+    index = (int *)malloc(sizeof(int) * A_len);
 
     A_Index = 0;
     while (A_Index < A_len)
