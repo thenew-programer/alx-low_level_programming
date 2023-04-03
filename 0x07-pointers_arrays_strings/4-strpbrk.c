@@ -46,6 +46,6 @@ char *_strpbrk(char *s, char *accept)
     }
     else
     {
-        return NULL;
+        return (NULL);
     }
 }

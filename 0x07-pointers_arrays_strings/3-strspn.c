@@ -22,7 +22,7 @@ unsigned int _strspn(char *s, char *accept)
         {
             if (s[i] == accept[A_Index])
             {
-                index[A_Index] = i + 1;
+                index[A_Index] = (i + 1);
                 break;
             }
             i++;
