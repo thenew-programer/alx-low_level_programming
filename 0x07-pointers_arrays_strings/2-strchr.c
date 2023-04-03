@@ -17,7 +17,6 @@ while (s[i++] != 0)
 if (s[i] == c)
 {
 return (s + i);
-exit(EXIT_SUCCESS);
 }
 }
 return NULL;
