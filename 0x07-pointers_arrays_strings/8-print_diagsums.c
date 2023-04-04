@@ -15,7 +15,7 @@ void print_diagsums(int *a, int size)
     for (i = 0; i < size; i++)
     {
         H_sum += *(a + (i * size) + i);
-        V_sum += *(a + (size * (i + 1) - (i + 1)));
+        V_sum += a[(size * (i + 1)) - (i + 1)];
     }
     printf("%d, %d\n", H_sum, V_sum);
 }
