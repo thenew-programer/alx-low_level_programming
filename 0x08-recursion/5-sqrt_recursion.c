@@ -2,7 +2,24 @@
 
 /**
 * _sqrt_recursion - return the natural square root of a number.
-* _sqrt_recursion_ex: - function that helped me calc the sqrt of n.
+* @n: the number.
+* @x: parameter that heped me find the sqrt root of n.
+* Return: the square root of n.
+*/
+
+int _sqrt_recursion_ex(int n, int x);
+
+int _sqrt_recursion(int n)
+{
+if (n < 1)
+{
+return (-1);
+}
+return (_sqrt_recursion_ex(n, 1));
+}
+
+/**
+* _sqrt_recursion_ex - function that helped me calc the sqrt of n.
 * @n: the number.
 * @x: parameter that heped me find the sqrt root of n.
 * Return: the square root of n.
@@ -24,19 +41,3 @@ x++;
 return (_sqrt_recursion_ex(n, x));
 }
 }
-
-/**
-* _sqrt_recursion - return the natural square root of a number.
-* _sqrt_recursion_ex: - function that helped me calc the sqrt of n.
-* @n: the number.
-* Return: the square root of n.
-*/
-
-int _sqrt_recursion(int n)
-{
-if (n < 1)
-{
-return (-1);
-}
-return (_sqrt_recursion_ex(n, 1));
-
