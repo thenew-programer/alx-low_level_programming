@@ -16,8 +16,8 @@ int main(int argc, char **argv)
         puts("0");
         return (0);
     }
-    int sum, i, num, j;
-    sum = num = 0;
+    int sum, i, j;
+    sum = 0;
     for (i = 1; i < argc; i++)
     {
         for (j = 0; argv[i][j] != 0; j++)
@@ -33,3 +33,4 @@ int main(int argc, char **argv)
     printf("%d\n", sum);
     return (0);
 }
+
