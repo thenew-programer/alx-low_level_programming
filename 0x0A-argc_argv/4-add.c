@@ -3,8 +3,7 @@
 #include <ctype.h>
 
 /**
- * main - Entry point
- * Description: adds positive numbers and print the result
+ * main - adds positive numbers and print the result
  * @argc: argument counter
  * @argv: array of argument
  * Return: 0 in Success, otherwise 1

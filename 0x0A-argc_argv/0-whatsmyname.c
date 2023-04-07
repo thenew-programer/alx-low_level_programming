@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * Description: Program that prints its name followed by a new line
+ * main - Program that prints its name followed by a new line
+ * @argc: argument counter
+ * @argv: array of argument
  * Return: 0
  */
 

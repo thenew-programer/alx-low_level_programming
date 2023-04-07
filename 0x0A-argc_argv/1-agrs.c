@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- * Description: this program prints the number of
+ * main - this program prints the number of
  * arguments passed into it
  * Return: 0 in Success
  */

@@ -2,8 +2,7 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point
- * Description: multiplies two numbers and print the result
+ * main - multiplies two numbers and print the result
  * @argc: the argument counter
  * @argv: the array of the argument
  * Return: 0

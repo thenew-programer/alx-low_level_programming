@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
-* main - Entry point
-* Description: this program prints all the arguments it receives
+* main - this program prints all the arguments it receives
 * @argc: the argument counter
 * @argv: the array containing the arguments
 * Return: 0
