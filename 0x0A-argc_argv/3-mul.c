@@ -11,6 +11,11 @@
 
 int main(int argc, char **argv)
 {
+    if (argc < 3)
+    {
+        puts("Error");
+        return (1);
+    }
     int x, y, result;
 
     x = atoi(argv[1]);
