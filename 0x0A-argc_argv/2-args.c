@@ -17,4 +17,3 @@ printf("%s\n", argv[i]);
 }
 return (0);
 }
-
