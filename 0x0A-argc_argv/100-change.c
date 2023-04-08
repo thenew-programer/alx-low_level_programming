@@ -41,6 +41,6 @@ int main(int argc, char **argv)
         }
         i++;
     }
-    printf("%d", coins);
+    printf("%d\n", coins);
     return (0);
 }
