@@ -8,12 +8,14 @@
  * Return: the pointer to the new string
  */
 
-char * _strdup(char * str) {
-    char * strdup;
+char *_strdup(char *str) {
+    char *strdup;
     int length;
+
     length = strlen(str);
-    strdup = (char *) malloc(sizeof(char) * length);
-    if (strdup == NULL) return (NULL);
+    strdup = (char *) malloc(sizeof(char) * length + 1);
+    if (strdup == NULL) 
+        return (NULL);
     strcpy(strdup, str);
     return (strdup);
 }
