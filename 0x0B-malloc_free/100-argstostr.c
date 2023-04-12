@@ -32,6 +32,7 @@ char *argstostr(int ac, char **av)
         accumulate += ++len;
     }
     string[accumulate] = 0;
+    string = realloc(string, size + 38);
 
     return (string);
 }
