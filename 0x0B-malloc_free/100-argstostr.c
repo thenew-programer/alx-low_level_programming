@@ -22,7 +22,8 @@ char *argstostr(int ac, char **av)
     {
         if (accumulate >= size)
         {
-            string = realloc(string, size * 2);
+            size += size;
+            string = realloc(string, size);
         }
         len = strlen(av[i]);
         memcpy(string + accumulate, av[i], len);
