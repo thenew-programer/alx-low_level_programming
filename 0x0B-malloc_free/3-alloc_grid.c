@@ -21,10 +21,10 @@ int **alloc_grid(int width, int height)
         return (NULL);
     for (i = 0; i < height; i++)
     {
-        array_2d[i] = (int *)calloc(width, sizeof(int));
+        array_2d[i] = (int *)malloc(width * sizeof(int));
         if (array_2d[i] != NULL)
         {
-            continue;
+            memset(array_2d[i], 0, width);
         }
         else
         {
