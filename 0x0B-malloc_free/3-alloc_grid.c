@@ -22,6 +22,20 @@ int **alloc_grid(int width, int height)
     for (i = 0; i < height; i++)
     {
         array_2d[i] = (int *)calloc(width, sizeof(int));
+        if (array_2d[i] != NULL)
+        {
+            continue;
+        }
+        else
+        {
+            while (i >= 0)
+            {
+                free(array_2d[i]);
+                i--;
+            }
+            free(array_2d);
+            return (NULL);
+        }
     }
 
     return (array_2d);
