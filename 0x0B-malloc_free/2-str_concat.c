@@ -23,7 +23,7 @@ lengthS2 = 0;
 else
 lengthS2 = strlen(s2);
 
-newString = (char *) malloc(sizeof(char) * (lenghtS1 + lengthS2) + 1);
+newString = (char *) malloc(sizeof(char) * (lenghtS1 + lengthS2)+1);
 if (newString == NULL)
 return (NULL);
 
