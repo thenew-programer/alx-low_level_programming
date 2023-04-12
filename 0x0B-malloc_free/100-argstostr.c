@@ -16,16 +16,17 @@ char *argstostr(int ac, char **av)
     if (ac == 0 || av == NULL)
         return (NULL);
     accumulate = 0;
-    size = 100;
+    len = strlen(av[0]);
+    size = len + 1;
     string = (char *)malloc(sizeof(char) * size);
     for (i = 0; i < ac; i++)
     {
-        if (accumulate >= size)
+        len = strlen(av[i]);
+        if (accumulate >= len)
         {
-            size += size;
+            size += len + 1;
             string = realloc(string, size);
         }
-        len = strlen(av[i]);
         memcpy(string + accumulate, av[i], len);
         string[accumulate + len] = '\n';
         accumulate += ++len;
