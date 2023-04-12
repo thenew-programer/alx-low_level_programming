@@ -12,7 +12,7 @@
 int **alloc_grid(int width, int height)
 {
     int **array_2d, i;
-    
+
     if (width <= 0 || height <= 0)
         return (NULL);
 
@@ -22,8 +22,6 @@ int **alloc_grid(int width, int height)
     for (i = 0; i < height; i++)
     {
         array_2d[i] = (int *)calloc(width, sizeof(int));
-        if (array_2d[i] == NULL)
-            return (NULL);
     }
 
     return (array_2d);
