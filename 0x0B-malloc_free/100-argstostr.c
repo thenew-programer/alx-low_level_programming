@@ -22,7 +22,7 @@ char *argstostr(int ac, char **av)
     for (i = 0; i < ac; i++)
     {
         len = strlen(av[i]);
-        if (accumulate >= len)
+        if (accumulate >= size)
         {
             size += len + 1;
             string = realloc(string, size);
@@ -32,7 +32,7 @@ char *argstostr(int ac, char **av)
         accumulate += ++len;
     }
     string[accumulate] = 0;
-    string = realloc(string, size + 38);
+    string = realloc(string, accumulate + 38);
 
     return (string);
 }
