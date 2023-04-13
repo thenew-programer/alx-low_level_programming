@@ -16,13 +16,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     char *string;
     int lengthS1, lengthS2;
 
-    /* check if the s1 if empty*/
+    /* check if the s1 is empty*/
     if (s1 == NULL)
         lengthS1 = 0;
     else
      lengthS1 = strlen(s1);
 
-    /* check if the s2 if empty*/
+    /* check if the s2 is empty*/
     if (s2 == NULL)
         lengthS2 = 0;
     else
@@ -37,6 +37,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
     if (string == NULL)
         return (NULL);
 
+    /* copy s1, and s2, in string using memcpy */
     memcpy(string, s1, lengthS1);
     memcpy((string + lengthS1), s2, n);
     string[lengthS1 + n] = '\0';
