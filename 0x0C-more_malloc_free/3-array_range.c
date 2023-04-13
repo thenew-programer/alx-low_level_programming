@@ -18,9 +18,10 @@ int size, i;
 if (min > max)
 return (NULL);
 
-size = max - min + 1;
+size = (max - min) + 1;
+
 /* Allocate memory for the array*/
-array = (int *)malloc(size * sizeof(int));
+array = (int *)malloc(size *sizeof(int));
 if (array == NULL)
 return (NULL);
 
