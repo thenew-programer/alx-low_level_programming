@@ -1,0 +1,9 @@
+splits a string into words
+
+start: 
+    first loop to know how many words are there
+    alloc the memory for the arr that will contain the new wods
+    loop to fill every element of the arr with words 
+        1- strlen of word
+        2- alloc memory for that word + '\0'
+        3- strcpy to fill the arr
