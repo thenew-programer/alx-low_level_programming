@@ -30,9 +30,9 @@ return (NULL);
 if (ptr == NULL)
 {
 /* Allocate the memory */
-newPtr = malloc(new_size);
+newPtr = malloc(old_size + new_size);
 if (newPtr == NULL)
-return (ptr);
+return (NULL);
 
 return (newPtr);
 }
@@ -43,7 +43,7 @@ if (new_size > old_size)
 /* allocate memory*/
 newPtr = malloc(new_size);
 if (newPtr == NULL)
-return (ptr);
+return (NULL);
 
 /* Copy the content of the old memory*/
 memcpy(newPtr, ptr, old_size);
