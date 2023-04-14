@@ -46,7 +46,10 @@ if (new_size > old_size)
 /* allocate memory*/
 newPtr = malloc(new_size);
 if (newPtr == NULL)
-return (NULL);
+{
+    free(ptr);
+    return (NULL);
+}
 
 /* Copy the content of the old memory*/
 memcpy(newPtr, ptr, old_size);
