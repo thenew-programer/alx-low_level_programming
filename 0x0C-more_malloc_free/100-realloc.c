@@ -11,52 +11,48 @@
 * Return: pointer to the new allocated memory.
 */
 
+
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-void *newPtr;
+void *mem;
+char *ptr_copy, *filler;
+unsigned int index;
 
-/* if the size don't change do nothing*/
 if (new_size == old_size)
 return (ptr);
 
-/* new_size = 0, is like free(ptr)*/
+if (ptr == NULL)
+{
+mem = malloc(new_size);
+
+if (mem == NULL)
+return (NULL);
+
+return (mem);
+}
+
 if (new_size == 0 && ptr != NULL)
 {
 free(ptr);
 return (NULL);
 }
 
-/* ptr == NULL; is like malloc(new_size + old_size)*/
-if (ptr == NULL)
-{
-/* Allocate the memory */
-newPtr = malloc(old_size + new_size);
-if (newPtr == NULL)
+ptr_copy = ptr;
+mem = malloc(sizeof(*ptr_copy) * new_size);
+
+if (mem == NULL)
 {
 free(ptr);
 return (NULL);
 }
 
-return (newPtr);
-}
+filler = mem;
 
-/* If new_size > old_size */
-if (new_size > old_size)
-{
-/* allocate memory*/
-newPtr = malloc(new_size);
-if (newPtr == NULL)
-{
-    free(ptr);
-    return (NULL);
-}
+for (index = 0; index < old_size && index < new_size; index++)
+filler[index] = *ptr_copy++;
 
-/* Copy the content of the old memory*/
-memcpy(newPtr, ptr, old_size);
-
-/* free the old memory*/
 free(ptr);
-return (newPtr);
+return (mem);
 }
-return (ptr);
-}
+
+
