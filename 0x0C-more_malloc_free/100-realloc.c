@@ -52,5 +52,5 @@ memcpy(newPtr, ptr, old_size);
 free(ptr);
 return (newPtr);
 }
-return (ptr);
+return (NULL);
 }

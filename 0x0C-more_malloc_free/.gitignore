@@ -2,3 +2,5 @@ script
 test-1.c
 test-100.c
 .gitignore
+a.out
+101-mul.c
