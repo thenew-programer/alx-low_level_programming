@@ -33,8 +33,8 @@ if (ptr == NULL)
 newPtr = malloc(old_size + new_size);
 if (newPtr == NULL)
 {
-    free(ptr);
-    return (NULL);
+free(ptr);
+return (NULL);
 }
 
 return (newPtr);
