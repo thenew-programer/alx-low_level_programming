@@ -20,7 +20,7 @@ if (new_size == old_size)
 return (ptr);
 
 /* new_size = 0, is like free(ptr)*/
-if (new_size == 0)
+if (new_size == 0 && ptr != NULL)
 {
 free(ptr);
 return (NULL);
@@ -32,7 +32,10 @@ if (ptr == NULL)
 /* Allocate the memory */
 newPtr = malloc(old_size + new_size);
 if (newPtr == NULL)
-return (NULL);
+{
+    free(ptr);
+    return (NULL);
+}
 
 return (newPtr);
 }
