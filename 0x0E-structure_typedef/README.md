@@ -1,7 +1,7 @@
 # Struct In C
 In C programming language, a structure, or struct, is a user-defined data type that groups together related data items of different data types. A struct can be thought of as a collection of variables under a single name.
 
-To define a struct, you use the struct keyword, followed by a name for the struct, and a set of curly braces that enclose the list of member variables. Here is an example of a struct that defines a person:
+To define a struct, you use the struct keyword, followed by a name for the struct, and a set of curly braces that enclose the list of member variables. Here is an example of a struct that defines a animal:
 
 ```
 struct animal {
