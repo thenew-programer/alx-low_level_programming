@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
 #include "dog.h"
 
 /**
@@ -18,16 +18,16 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (dog == NULL)
 		return (NULL);
 
-	dog->owner = (char *)malloc(strlen(owner) + 1);
+	dog->owner = (char *)malloc(_strlen(owner) + 1);
 	if (dog->owner == NULL)
 		return (NULL);
 
-	dog->name = (char *)malloc(strlen(name) + 1);
+	dog->name = (char *)malloc(_strlen(name) + 1);
 	if (dog->name == NULL)
 		return (NULL);
 
-	strcpy(dog->name, name);
-	strcpy(dog->owner, owner);
+	_strcopy(dog->name, name);
+	_strcopy(dog->owner, owner);
 	dog->age = age;
 
 	return (dog);
