@@ -1,2 +1,2 @@
 a.out
-test-0.c
+test-[0-9].c
