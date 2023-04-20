@@ -11,7 +11,7 @@ return_type (*pointer_name)(parameter_list)
 - Pointer_name: the name of the function pointer.(You name it whatever you want)
 - Parameter_list: list of parameter type that your function will accept.
 
-### Exemple
+### Example
 ```
 int (*my_function_pointer)(int, int);
 ```
