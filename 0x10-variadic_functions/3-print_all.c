@@ -18,12 +18,9 @@ void print_all(const char * const format, ...)
 
 	i = 0;
 	count = strlen(format);
-
 	va_start(randomArgs, format);
-
 	while (i < count)
 	{
-		
 		switch (format[i++])
 		{
 			case ('c'):
@@ -42,11 +39,8 @@ void print_all(const char * const format, ...)
 					printf("(nil)");
 					break;
 				}
-				else
-				{
 					printf("%s", string);
 					break;
-				}
 			default:
 				continue;
 		}
@@ -57,6 +51,5 @@ void print_all(const char * const format, ...)
 		}
 		printf(", ");
 	}
-
 	va_end(randomArgs);
 }
