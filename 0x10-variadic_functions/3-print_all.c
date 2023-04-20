@@ -9,47 +9,44 @@
 * Return: Nothing
 */
 
-
 void print_all(const char * const format, ...)
 {
-	va_list randomArgs;
-	unsigned int i, count;
-	char *string;
+	unsigned int i;
+	va_list args;
+	char *s, *separator;
 
-	i = 0, count = strlen(format);
-	va_start(randomArgs, format);
+	va_start(args, format);
+
+	separator = "";
+
+	i = 0;
 	while (format && format[i])
 	{
-		switch (format[i++])
+		switch (format[i])
 		{
-			case ('c'):
-				printf("%c", va_arg(randomArgs, int));
+			case 'c':
+				printf("%s%c", separator,  va_arg(args, int));
 				break;
-			case ('i'):
-				printf("%d", va_arg(randomArgs, int));
+			case 'i':
+				printf("%s%d", separator, va_arg(args, int));
 				break;
-			case ('f'):
-				printf("%f", va_arg(randomArgs, double));
+			case 'f':
+				printf("%s%f", separator, va_arg(args, double));
 				break;
-			case ('s'):
-				string = (char *)va_arg(randomArgs, char *);
-				if (string == NULL)
-				{
-					printf("(nil)");
-					break;
-				}
-					printf("%s", string);
-					break;
+			case 's':
+				s = va_arg(args, char *);
+				if (s == NULL)
+					s = "(nil)";
+				printf("%s%s", separator, s);
+				break;
 			default:
 				i++;
 				continue;
 		}
-		if (i == count)
-		{
-			printf("\n");
-			continue;
-		}
-		printf(", ");
+		separator = ", ";
+		i++;
 	}
-	va_end(randomArgs);
+
+	printf("\n");
+	va_end(args);
 }
