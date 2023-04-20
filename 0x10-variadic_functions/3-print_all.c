@@ -13,11 +13,11 @@
 void print_all(const char * const format, ...)
 {
 	va_list randomArgs;
-	unsigned int i;
+	unsigned int i, count;
 	char *string;
 
-
-	i = 0, va_start(randomArgs, format);
+	i = 0, count = strlen(format);
+	va_start(randomArgs, format);
 	while (format && format[i])
 	{
 		switch (format[i++])
