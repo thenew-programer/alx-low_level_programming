@@ -7,7 +7,7 @@
 * Return: Always 0
 */
 
-int main(int __attribute__((__unused__)) argc, char **argv)
+int main(int argc, char **argv)
 {
 	int a, b, result;
 	op_t operation;
@@ -21,7 +21,7 @@ int main(int __attribute__((__unused__)) argc, char **argv)
 	if ((argv[2][0] == '/' || argv[2][0] == '%') && (atoi(argv[3]) == 0))
 	{
 		puts("Error");
-		exit(2);
+		exit(100);
 	}
 
 	operation.op = argv[2];
