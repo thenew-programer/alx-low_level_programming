@@ -16,7 +16,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list args;
 
 	if (separator == NULL)
-		return;
+		separator = "";
 
 	va_start(args, n);
 
@@ -36,7 +36,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			continue;
 		}
 
-		printf("%s", str);
+		printf("%s%s", str, separator);
 
 	}
 
