@@ -30,7 +30,7 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(randomArgs, int));
 				break;
 			case ('f'):
-				printf("%f", va_arg(randomArgs, double));
+				printf("%lf", va_arg(randomArgs, double));
 				break;
 			case ('s'):
 				string = (char *)va_arg(randomArgs, char *);
