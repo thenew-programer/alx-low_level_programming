@@ -13,13 +13,12 @@
 void print_all(const char * const format, ...)
 {
 	va_list randomArgs;
-	unsigned int i, count;
+	unsigned int i;
 	char *string;
 
-	i = 0;
-	count = strlen(format);
-	va_start(randomArgs, format);
-	while (i <= count)
+
+	i = 0, va_start(randomArgs, format);
+	while (format && format[i])
 	{
 		switch (format[i++])
 		{
@@ -30,7 +29,7 @@ void print_all(const char * const format, ...)
 				printf("%d", va_arg(randomArgs, int));
 				break;
 			case ('f'):
-				printf("%lf", va_arg(randomArgs, double));
+				printf("%f", va_arg(randomArgs, double));
 				break;
 			case ('s'):
 				string = (char *)va_arg(randomArgs, char *);
@@ -42,6 +41,7 @@ void print_all(const char * const format, ...)
 					printf("%s", string);
 					break;
 			default:
+				i++;
 				continue;
 		}
 		if (i == count)
