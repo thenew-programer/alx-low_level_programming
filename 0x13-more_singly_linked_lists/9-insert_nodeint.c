@@ -10,7 +10,7 @@
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *newNode, *tmp, *current;
+	listint_t *newNode, *current;
 	unsigned int i;
 
 
