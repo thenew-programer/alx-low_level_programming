@@ -12,6 +12,7 @@
 int set_bit(unsigned long int *n, unsigned int index)
 {
 	int mask;
+
 	if (!n || index > 32)
 		return (FAILURE);
 
