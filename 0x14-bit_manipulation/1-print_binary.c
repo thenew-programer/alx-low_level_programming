@@ -1,13 +1,11 @@
 #include "main.h"
 
 /**
-* print_binary - prints the binary representation of a number.
+* real_function - the funtion that do the ral work.
 * @n: the number.
-* Description: I'm gonna use bitwise operator ">> <<"
-* Return: nothing.
+* Return: nothing
 */
-
-void print_binary(unsigned long int n)
+void real_function(unsigned long int n)
 {
 	short bit;
 	unsigned long int number;
@@ -18,7 +16,26 @@ void print_binary(unsigned long int n)
 	}
 
 	number = n >> 1;
-	print_binary(number);
+	real_function(number);
 	bit = n & 1;
 	_putchar(bit + '0');
+
 }
+
+/**
+* print_binary - prints the binary representation of a number.
+* @n: the number.
+* Description: I'm gonna use bitwise operator ">> <<"
+* Return: nothing.
+*/
+
+void print_binary(unsigned long int n)
+{
+	if (n == 0)
+	{
+		_putchar('0');
+		return;
+	}
+	real_function(n);
+}
+
