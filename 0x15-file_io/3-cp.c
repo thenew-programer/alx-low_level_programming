@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	}
 	while ((n = read(fd1, string, BUFFER)) > 0)
 	{
-		write(fd2, string, BUFFER);
+		write(fd2, string, strlen(string));
 	}
 	fd1 = close(fd1);
 	fd2 = close(fd2);
