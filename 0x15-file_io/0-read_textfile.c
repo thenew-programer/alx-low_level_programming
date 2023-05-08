@@ -16,12 +16,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (!filename)
 		return (0);
-	
+
 	fptr = fopen(filename, "r");
 	if (!fptr)
 		return (0);
 
-	while((c = getc(fptr)) != EOF && (letters > i))
+	while ((c = getc(fptr)) != EOF && (letters > i))
 	{
 		_putchar(c);
 		numOfBytes++;
