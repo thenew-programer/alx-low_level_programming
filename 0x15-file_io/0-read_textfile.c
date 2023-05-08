@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
 * read_textfile - reads file and prints it to STDOUT
@@ -11,14 +10,23 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t numOfBytes;
+	size_t i;
+	FILE *fptr;
+	char c;
 
 	if (!filename)
 		return (0);
 	
-	FILE *file;
-	file = fopen(filename, "r");
-	if (!file)
+	fptr = fopen(filename, "r");
+	if (!fptr)
 		return (0);
 
-	fclose(file);
+	while((c = getc(fptr)) != EOF && (letters > i))
+	{
+		_putchar(c);
+		numOfBytes++;
+		i++;
+	}
+	fclose(fptr);
+	return (numOfBytes);
 }
