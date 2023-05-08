@@ -17,14 +17,19 @@ int append_text_to_file(const char *filename, char *text_content)
 	int fd;
 
 	/* Check for edge cases */
-	if (!filename || !text_content)
+	if (!filename)
 		return (FAILURE);
 
 	/* Try open the file if exists without*/
 	fd = open(filename, O_WRONLY | O_APPEND, 0600);
-	if (fd < 2)
+	if (fd == -1)
 		return (FAILURE);
 
+	if (!text_content)
+	{
+		close(fd);
+		return (1);
+	}
 	/* Append to the file using the fd return from open()*/
 	write(fd, text_content, strlen(text_content));
 
