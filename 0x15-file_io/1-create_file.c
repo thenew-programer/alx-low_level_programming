@@ -12,18 +12,19 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	FILE *fptr;
+	int fd;
 
 	if (!filename || !text_content)
 		return (FAILURE);
 
 
-	fptr = fopen(filename, "w+");
-	if (!fptr)
+	printf("hello world\n");
+	fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0600);
+	if (fd == -1)
 		return (FAILURE);
 
 
-	fprintf(fptr, "%s", text_content);
-	fclose(fptr);
+	printf("hello bitch\n");
+	write(fd, text_content, strlen(text_content));
 	return (SUCCESS);
 }
