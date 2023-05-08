@@ -9,25 +9,25 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t numOfBytes;
-	size_t i;
-	FILE *fptr;
-	char c;
+	ssize_t byteRead, byteWrite;
+	int fd;
+	char *buffer;
 
 	if (!filename)
 		return (0);
 
-	numOfBytes = i = 0;
-	fptr = fopen(filename, "r");
-	if (!fptr)
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
 
-	while ((c = getc(fptr)) != EOF && (letters > i))
-	{
-		_putchar(c);
-		numOfBytes++;
-		i++;
-	}
-	fclose(fptr);
-	return (numOfBytes);
+	buffer = (char *)malloc(sizeof(char) * letters);
+	if (buffer)
+		return (0);
+
+	byteRead = read(fd, buffer, letters);
+	byteWrite = write(STDOUT_FILENO, buffer, byteRead);
+
+	close(fd);
+	free(buffer);
+	return (byteWrite);
 }

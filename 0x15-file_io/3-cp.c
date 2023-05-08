@@ -23,12 +23,14 @@ void fileError(int fd1, int fd2, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(R_ERROR);
 	}
+
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(W_ERROR);
 	}
 }
+
 /**
 * main - entry point.
 * Description: This program
@@ -61,7 +63,7 @@ int main(int argc, char **argv)
 		byteRead = read(fd1, string, BUFFER);
 		if (byteRead == -1)
 			fileError(-1, 0, argv);
-		byteWrite = write(fd2, string, strlen(string));
+		byteWrite = write(fd2, string, byteRead);
 		if (byteWrite == -1)
 			fileError(0, -1, argv);
 	}
