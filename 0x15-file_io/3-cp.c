@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(ARG_ERROR);
+		return (ARG_ERROR);
 	}
 
 	fd1 = open(argv[1], O_RDONLY);
@@ -58,14 +58,15 @@ int main(int argc, char **argv)
 	fileError(fd1, fd2, argv);
 
 	byteRead = BUFFER;
-	while ((byteRead = read(fd1, string, BUFFER)) > 0)
+	while (byteRead == BUFFER)
 	{
-		;
-		if ((byteWrite = write(fd2, string, byteRead)) != byteRead)
+		byteRead = read(fd1, string, BUFFER);
+		if (byteRead == -1)
+			fileError(-1, 0, argv);
+		byteWrite = write(fd2, string, byteRead);
+		if (byteWrite == -1)
 			fileError(0, -1, argv);
 	}
-	if (byteRead == -1)
-		fileError(-1, 0, argv);
 
 	fd1 = close(fd1);
 	if (fd1 == -1)
