@@ -41,7 +41,7 @@ void fileError(int fd1, int fd2, char **argv)
 
 int main(int argc, char **argv)
 {
-	int fd1, fd2, fdClose;
+	int fd1, fd2;
 	ssize_t byteRead, byteWrite;
 	char string[BUFFER];
 
@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 	}
 
 	fd1 = open(argv[1], O_RDONLY);
-	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
+	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	fileError(fd1, fd2, argv);
 
 	byteRead = BUFFER;
@@ -66,14 +66,14 @@ int main(int argc, char **argv)
 			fileError(0, -1, argv);
 	}
 
-	fdClose = close(fd1);
-	if (fdClose == -1)
+	fd1 = close(fd1);
+	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		exit(C_ERROR);
 	}
-	fdClose = close(fd2);
-	if (fdClose == -1)
+	fd2 = close(fd2);
+	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(C_ERROR);
