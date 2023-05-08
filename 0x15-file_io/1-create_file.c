@@ -14,7 +14,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 
-	if (!filename || !text_content)
+	if (!filename)
 		return (FAILURE);
 
 
@@ -22,6 +22,11 @@ int create_file(const char *filename, char *text_content)
 	if (fd < 2)
 		return (FAILURE);
 
+	if (!text_content)
+	{
+		close(fd);
+		return (1);
+	}
 	write(fd, text_content, strlen(text_content));
 	close(fd);
 	return (SUCCESS);
