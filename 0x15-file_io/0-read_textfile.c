@@ -17,6 +17,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!filename)
 		return (0);
 
+	numOfBytes = i = 0;
 	fptr = fopen(filename, "r");
 	if (!fptr)
 		return (0);
