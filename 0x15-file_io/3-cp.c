@@ -6,6 +6,29 @@
 #define W_ERROR 99 /*WRITE ERROR */
 #define C_ERROR 100	/* Close ERROR*/
 
+
+/**
+ * fileError - checks if there is no Error
+ * while interacting with files
+ * @fd1: fd for file_from
+ * @fd2: fd for file_to.
+ * @argv: name of files
+ * Return: nothing.
+ */
+
+void fileError(int fd1, int fd2, char **argv)
+{
+	if (fd1 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		exit(R_ERROR);
+	}
+	if (fd2 == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+		exit(W_ERROR);
+	}
+}
 /**
 * main - entry point.
 * Description: This program
@@ -19,7 +42,7 @@
 int main(int argc, char **argv)
 {
 	int fd1, fd2;
-	ssize_t n;
+	ssize_t byteRead, byteWrite;
 	char string[BUFFER];
 
 	if (argc != 3)
@@ -27,30 +50,31 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (ARG_ERROR);
 	}
+
 	fd1 = open(argv[1], O_RDONLY);
-	if (fd1 == 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-		return (R_ERROR);
-	}
 	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd2 == 0)
+	fileError(fd1, fd2, argv);
+
+	byteRead = BUFFER;
+	while (byteRead == BUFFER)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-		return (W_ERROR);
+		byteRead = read(fd1, string, BUFFER);
+		if (byteRead == -1)
+			fileError(-1, 0, argv);
+		byteWrite = write(fd2, string, strlen(string));
+		if (byteWrite == -1)
+			fileError(0, -1, argv);
 	}
-	while ((n = read(fd1, string, BUFFER)) > 0)
-	{
-		write(fd2, string, strlen(string));
-	}
+
+
 	fd1 = close(fd1);
-	fd2 = close(fd2);
 	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
 		return (C_ERROR);
 	}
-	else if (fd2 == -1)
+	fd2 = close(fd2);
+	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		return (C_ERROR);
