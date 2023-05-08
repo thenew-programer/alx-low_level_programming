@@ -28,5 +28,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	/* Append to the file using the fd return from open()*/
 	write(fd, text_content, strlen(text_content));
 
+	/* Close the file*/
+	close(fd);
 	return (SUCCESS);
 }
