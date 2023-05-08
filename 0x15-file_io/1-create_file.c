@@ -10,17 +10,17 @@
 * Return: 1 On Success, -1 Failure
 */
 
-int create_file(const char *filename, char *tesxt_content)
+int create_file(const char *filename, char *test_content)
 {
 	FILE *fptr;
 
-	if (!filename || !tesxt_content)
+	if (!filename || !test_content)
 		return (FAILURE);
 
 	fptr = fopen(filename, "w+");
 	if (fptr)
 		return (FAILURE);
 
-	fprintf(fptr, tesxt_content);
+	fprintf(fptr, "%s",test_content);
 	return (SUCCESS);
 }
