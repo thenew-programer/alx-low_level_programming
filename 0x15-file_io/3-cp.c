@@ -52,7 +52,7 @@ int main(int argc, char **argv)
 	}
 
 	fd1 = open(argv[1], O_RDONLY);
-	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	fd2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	fileError(fd1, fd2, argv);
 
 	byteRead = BUFFER;
@@ -66,18 +66,17 @@ int main(int argc, char **argv)
 			fileError(0, -1, argv);
 	}
 
-
 	fd1 = close(fd1);
 	if (fd1 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1);
-		return (C_ERROR);
+		exit(C_ERROR);
 	}
 	fd2 = close(fd2);
 	if (fd2 == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
-		return (C_ERROR);
+		exit(C_ERROR);
 	}
 	return (EXIT_SUCCESS);
 }
