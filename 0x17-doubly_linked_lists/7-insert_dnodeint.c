@@ -4,7 +4,7 @@
  * insert_dnodeint_at_index - it does what it says
  * @h: pointer to head of the dll
  * @idx: position where we gonna insert
- * @i: data
+ * @n: data
  * Return: the addr of new node
  */
 
