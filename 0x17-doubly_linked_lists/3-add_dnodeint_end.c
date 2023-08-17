@@ -1,6 +1,10 @@
 #include "lists.h"
 
 /**
+ * add_dnodeint_end - add a node at the end of dll
+ * @head: pointer to head of the dll
+ * @n: data
+ * Return: new node
 */
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 {
