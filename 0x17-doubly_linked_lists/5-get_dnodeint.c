@@ -8,14 +8,9 @@
 */
 dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 {
-	dlistint_t *node;
 	dlistint_t *tmp;
 	size_t len;
 	size_t i;
-	/*
-	len = dlistint_len(head);
-	*/
-
 
 	tmp = head;
 	len = 0;
@@ -25,14 +20,12 @@ dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int index)
 		len++;
 	}
 	if (index > len)
-	{
 		return (NULL);
-	}
 
-	node = head;
+	tmp = head;
 	for (i = 0; i < index; i++)
 	{
-		node = node->next;
+		tmp = tmp->next;
 	}
-	return (node);
+	return (tmp);
 }
