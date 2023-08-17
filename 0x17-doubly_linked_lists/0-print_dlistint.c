@@ -1,4 +1,6 @@
+#include <stddef.h>
 #include "lists.h"
+
 
 /**
  * print_dlistint - function that prints a dll
@@ -11,7 +13,7 @@ size_t print_dlistint(const dlistint_t *h)
 	dlistint_t *tmp;
 	size_t lenght;
 
-	tmp = h;
+	tmp = (dlistint_t *) h;
 	lenght = 0;
 	while(tmp)
 	{
