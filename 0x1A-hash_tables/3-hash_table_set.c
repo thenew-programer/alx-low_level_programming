@@ -1,8 +1,5 @@
 #include "hash_tables.h"
 
-hash_node_t *add_node_to_list(hash_table_t *ht, const char *key,
-							  const char *value,
-							  const unsigned long int index);
 hash_node_t *create_node(const char *key, const char *value);
 /**
  * hash_table_set - add or update a node in the hash_table
@@ -15,56 +12,30 @@ hash_node_t *create_node(const char *key, const char *value);
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new_node;
+	hash_node_t *new_node, *tmp;
 
 	if (!key)
 		return (FAILURE);
 	index = key_index((unsigned char *)key, ht->size);
-
-	if (!ht->array[index])
-	{
-		new_node = create_node(key, value);
-		if (!new_node)
-			return (FAILURE);
-		ht->array[index] = new_node;
-	}
-	else
-	{
-		if (add_node_to_list(ht, key, value, index) == NULL)
-			return (FAILURE);
-	}
-
-	return (SUCCESS);
-}
-
-/**
- * add_node - adds a node to the list where the collision occur
- * @ht: hash table
- * @key: key
- * @value: value
- * @index: the index where we want to add the node
- * Return: pointer of the new node
- */
-hash_node_t *add_node_to_list(hash_table_t *ht, const char *key,
-							  const char *value,
-							  const unsigned long int index)
-{
-	hash_node_t *new_node, *tmp;
-	int i;
+	printf("index: %lu\n", index);
 
 	new_node = create_node(key, value);
 	if (!new_node)
-		return (NULL);
-	if (ht->array[index]->next == NULL)
+		return (FAILURE);
+
+	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new_node;
-		return (new_node);
+		printf("done");
 	}
-	tmp = ht->array[index];
-	for (i = 0; tmp; i++)
-		tmp = tmp->next;
-	tmp->next = new_node;
-	return (new_node);
+	else
+	{
+		tmp = ht->array[index]->next;
+		new_node->next = tmp;
+		ht->array[index] = new_node;
+	}
+
+	return (SUCCESS);
 }
 
 /**
@@ -78,6 +49,7 @@ hash_node_t *create_node(const char *key, const char *value)
 {
 	hash_node_t *new_node;
 
+	new_node = (hash_node_t *)malloc(sizeof(hash_node_t));
 	if (!new_node)
 		return (NULL);
 
