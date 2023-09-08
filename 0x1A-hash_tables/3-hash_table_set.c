@@ -1,5 +1,7 @@
 #include "hash_tables.h"
 
+hash_node_t *add_node(hash_table_t *ht, const char *key, const char *value,
+					  const unsigned long int index);
 /**
  * hash_table_set - add or update a node in the hash_table
  * @ht: the hash table
@@ -7,14 +9,15 @@
  * @value: the value
  * Return: 1 if succeed, 0 otherwise
 */
+
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 
 	if (!key)
 		return (FAILURE);
-	index = key_index((unsigned char*)key, ht->size);
-	if (!ht->array[index])
+	index = key_index((unsigned char *)key, ht->size);
+	if (ht->array[index] == NULL)
 	{
 		ht->array[index]->key = (char *)key;
 		ht->array[index]->value = (char *)value;
@@ -51,7 +54,7 @@ hash_node_t *add_node(hash_table_t *ht, const char *key, const char *value,
 	new_node->key = (char *)key;
 	new_node->value = (char *)value;
 	new_node->next = NULL;
-	if (!ht->array[index]->next)
+	if (ht->array[index]->next == NULL)
 	{
 		ht->array[index]->next = new_node;
 		return (new_node);
