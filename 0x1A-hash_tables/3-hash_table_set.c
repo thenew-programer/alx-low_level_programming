@@ -1,7 +1,9 @@
 #include "hash_tables.h"
 
-hash_node_t *add_node(hash_table_t *ht, const char *key, const char *value,
-					  const unsigned long int index);
+hash_node_t *add_node_to_list(hash_table_t *ht, const char *key,
+							  const char *value,
+							  const unsigned long int index);
+hash_node_t *create_node(const char *key, const char *value);
 /**
  * hash_table_set - add or update a node in the hash_table
  * @ht: the hash table
@@ -13,21 +15,23 @@ hash_node_t *add_node(hash_table_t *ht, const char *key, const char *value,
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *new_node;
 
 	if (!key)
 		return (FAILURE);
 	index = key_index((unsigned char *)key, ht->size);
-	if (ht->array[index] == NULL)
+
+	if (!ht->array[index])
 	{
-		ht->array[index]->key = (char *)key;
-		ht->array[index]->value = (char *)value;
+		new_node = create_node(key, value);
+		if (!new_node)
+			return (FAILURE);
+		ht->array[index] = new_node;
 	}
 	else
 	{
-		if (add_node(ht, key, value, index) == NULL)
-		{
+		if (add_node_to_list(ht, key, value, index) == NULL)
 			return (FAILURE);
-		}
 	}
 
 	return (SUCCESS);
@@ -41,27 +45,44 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * @index: the index where we want to add the node
  * Return: pointer of the new node
  */
-hash_node_t *add_node(hash_table_t *ht, const char *key, const char *value,
-					  const unsigned long int index)
+hash_node_t *add_node_to_list(hash_table_t *ht, const char *key,
+							  const char *value,
+							  const unsigned long int index)
 {
 	hash_node_t *new_node, *tmp;
 	int i;
 
-	new_node = (hash_node_t *)malloc(sizeof(hash_node_t));
+	new_node = create_node(key, value);
 	if (!new_node)
 		return (NULL);
-
-	new_node->key = (char *)key;
-	new_node->value = (char *)value;
-	new_node->next = NULL;
 	if (ht->array[index]->next == NULL)
 	{
-		ht->array[index]->next = new_node;
+		ht->array[index] = new_node;
 		return (new_node);
 	}
 	tmp = ht->array[index];
 	for (i = 0; tmp; i++)
 		tmp = tmp->next;
 	tmp->next = new_node;
+	return (new_node);
+}
+
+/**
+ * create_node - made this function following the DRY principle
+ * @key: key
+ * @value: value
+ * Return: pointer to the new node
+ *
+*/
+hash_node_t *create_node(const char *key, const char *value)
+{
+	hash_node_t *new_node;
+
+	if (!new_node)
+		return (NULL);
+
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
+	new_node->next = NULL;
 	return (new_node);
 }
