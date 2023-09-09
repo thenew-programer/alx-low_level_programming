@@ -26,12 +26,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	{
 		ht->array[index] = new_node;
 	}
-	else
+	else if (ht->array[index])
 	{
-		tmp = ht->array[index]->next;
-		new_node->next = tmp;
-		ht->array[index] = new_node;
+		tmp = ht->array[index];
+		while (tmp)
+		{
+			if (strcmp(key, tmp->key) == 0)
+			{
+				free(tmp->value);
+				tmp->value = new_node->value;
+				free(new_node->key);
+				free(new_node);
+				return (SUCCESS);
+			}
+			tmp = tmp->next;
+		}
 	}
+	tmp = ht->array[index]->next;
+	new_node->next = tmp;
+	ht->array[index] = new_node;
 
 	return (SUCCESS);
 }
