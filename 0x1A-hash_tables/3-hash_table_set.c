@@ -17,7 +17,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!key)
 		return (FAILURE);
 	index = key_index((unsigned char *)key, ht->size);
-	printf("index: %lu\n", index);
 
 	new_node = create_node(key, value);
 	if (!new_node)
@@ -26,7 +25,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (ht->array[index] == NULL)
 	{
 		ht->array[index] = new_node;
-		printf("done");
 	}
 	else
 	{
