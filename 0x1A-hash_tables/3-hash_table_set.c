@@ -13,39 +13,42 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
 	hash_node_t *new_node, *tmp;
+	char *value_copy;
 
 	if (!ht || key == 0 || !value)
 		return (FAILURE);
 	index = key_index((unsigned char *)key, ht->size);
+
+	value_copy = strdup(value);
+	if (!value_copy)
+		return (0);
+
+	index = key_index((const unsigned char *)key, ht->size);
+	tmp = ht->array[index];
+	while (tmp)
+	{
+		if (strcmp(tmp->key, key) == 0)
+		{
+			free(tmp->value);
+			tmp->value = value_copy;
+			return (SUCCESS);
+		}
+		tmp = tmp->next;
+	}
+	free(value_copy);
 
 	new_node = create_node(key, value);
 	if (!new_node)
 		return (FAILURE);
 
 	if (ht->array[index] == NULL)
-	{
 		ht->array[index] = new_node;
-		return (SUCCESS);
-	}
 	else
 	{
 		tmp = ht->array[index];
-		while (tmp)
-		{
-			if (strcmp(key, tmp->key) == 0)
-			{
-				free(tmp->value);
-				tmp->value = new_node->value;
-				free(new_node->key);
-				free(new_node);
-				return (SUCCESS);
-			}
-			tmp = tmp->next;
-		}
+		new_node->next = tmp;
+		ht->array[index] = new_node;
 	}
-	tmp = ht->array[index]->next;
-	new_node->next = tmp;
-	ht->array[index] = new_node;
 
 	return (SUCCESS);
 }
@@ -66,7 +69,17 @@ hash_node_t *create_node(const char *key, const char *value)
 		return (NULL);
 
 	new_node->key = strdup(key);
+	if (!new_node->key)
+	{
+		free(new_node);
+		return (NULL);
+	}
 	new_node->value = strdup(value);
+	if (!new_node->value)
+	{
+		free(new_node);
+		return (NULL);
+	}
 	new_node->next = NULL;
 	return (new_node);
 }
