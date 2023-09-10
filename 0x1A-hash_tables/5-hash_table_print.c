@@ -10,16 +10,19 @@ void hash_table_print(const hash_table_t *ht)
 	unsigned long int i, empty_cells;
 	hash_node_t *tmp;
 
-	if (!ht || !ht->array || ht->size == 0)
+	if (!ht || ht->size == 0)
 		return;
 
-	putchar('{');
+	printf("{");
 	empty_cells = 0;
 	for (i = 0; i < ht->size; i++)
 	{
+		if (empty_cells == ht->size - 1)
+		{
+			printf("\b{}\n");
+			return;
+		}
 		tmp = ht->array[i];
-		if (i == ht->size - 1 && empty_cells != ht->size - 1)
-			printf("\b\b");
 		if (!tmp)
 		{
 			empty_cells++;
@@ -31,6 +34,6 @@ void hash_table_print(const hash_table_t *ht)
 			tmp = tmp->next;
 		}
 	}
-	puts("}");
+	printf("\b\b}\n");
 
 }
