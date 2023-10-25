@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""island perimeter"""
+"""Define a function called island_perimeter"""
 
 
 def island_perimeter(grid):
